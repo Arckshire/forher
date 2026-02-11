@@ -134,8 +134,8 @@
       but only for you 😌❤️
     </p>
 
-    <button id="yes" onclick="forgive()">Yes 💕</button>
-    <button id="no" onmouseover="moveNo()">No 😜</button>
+    <button id="YES" onclick="forgive()">Yes 💕</button>
+    <button id="NO" onclick="moveNo()">No 😜</button>
 
     <div id="finalMessage">
       YAAAY 😭❤️<br><br>
@@ -146,29 +146,39 @@
   </div>
 
   <script>
-    function moveNo() {
-      const button = document.getElementById("no");
-      const x = Math.random() * 250 - 125;
-      const y = Math.random() * 200 - 100;
-      button.style.transform = `translate(${x}px, ${y}px)`;
-    }
+  function moveNo() {
+    const button = document.getElementById("no");
 
-    function forgive() {
-      document.getElementById("finalMessage").style.display = "block";
-    }
+    const card = document.querySelector(".card");
+    const cardRect = card.getBoundingClientRect();
 
-    // Floating hearts generator
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "❤";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 20 + 15 + "px";
-      document.body.appendChild(heart);
+    const maxX = cardRect.width - 100;
+    const maxY = cardRect.height - 50;
 
-      setTimeout(() => heart.remove(), 6000);
-    }, 300);
-  </script>
+    const randomX = Math.random() * maxX - maxX/2;
+    const randomY = Math.random() * maxY - maxY/2;
+
+    button.style.transform = `translate(${randomX}px, ${randomY}px)`;
+  }
+
+  function forgive() {
+    document.getElementById("finalMessage").style.display = "block";
+  }
+
+  // Floating hearts
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }, 300);
+</script>
+
 
 </body>
 </html>
+
