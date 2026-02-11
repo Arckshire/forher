@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Nidu Pidu Bubu Kuri ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.95);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 450px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    .nickname {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff4d6d;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background: #666;
+      color: white;
+      position: absolute;
+    }
+
+    #finalMessage {
+      display: none;
+      font-size: 20px;
+      color: #ff4d6d;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      color: rgba(255,0,90,0.4);
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+      30% { opacity: 1; }
+      100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background music -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9bcebb.mp3?filename=romantic-love-ambient-110827.mp3">
+  </audio>
+
+  <div class="card">
+    <h1>Happy Promise Day 💖</h1>
+
+    <div class="nickname">Nidu Pidu Bubu Kuri</div>
+
+    <p>
+      I’m really sorry for what I said…<br>
+      I know it made you feel insecure and I hate that I was the reason for it.
+    </p>
+
+    <p>
+      I will always, always choose you.<br>
+      I will always, always love you.
+    </p>
+
+    <p>
+      Do you promise to forgive me and keep loving me…<br>
+      like I promise to never hurt you like this again?
+    </p>
+
+    <p>
+      And yes… I’ll be the biggest tharki in the world —<br>
+      but only for you 😌❤️
+    </p>
+
+    <button id="yes" onclick="forgive()">Yes 💕</button>
+    <button id="no" onmouseover="moveNo()">No 😜</button>
+
+    <div id="finalMessage">
+      YAAAY 😭❤️<br><br>
+      Thank you for forgiving me, bubu.<br>
+      I promise to protect your heart better.<br><br>
+      I love you. Always.
+    </div>
+  </div>
+
+  <script>
+    function moveNo() {
+      const button = document.getElementById("no");
+      const x = Math.random() * 250 - 125;
+      const y = Math.random() * 200 - 100;
+      button.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function forgive() {
+      document.getElementById("finalMessage").style.display = "block";
+    }
+
+    // Floating hearts generator
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }, 300);
+  </script>
+
+</body>
+</html>
